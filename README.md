@@ -52,9 +52,8 @@ Cadastre os dois eventos.<br>
 Cadastre os participantes do evento.<br>
 Obs: Precisa seguir exatamente essa ordem, o sistema já valída caso tenha algum erro.<br>
 
-4º Há uma pasta chamada doc, nela você terá a documentação de todas as classes.
 
-#Documentação<br>
+# Documentação<br>
 
 
 A documentação esta em um site de hospedagem  ![image](https://user-images.githubusercontent.com/57731043/109433639-2bddcc00-79f0-11eb-9218-39fde02540a1.png)<br>
