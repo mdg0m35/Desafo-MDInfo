@@ -44,7 +44,7 @@ CREATE TABLE `pessoas` (<br>
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;<br>
 
 COMMIT;<br>
-![gif](https://user-images.githubusercontent.com/57731043/109428982-499f3700-79d8-11eb-9695-5c0951d06c16.gif)
+![gif](https://user-images.githubusercontent.com/57731043/109428982-499f3700-79d8-11eb-9695-5c0951d06c16.gif)<br>
 
 2º Procure a classe de conexão e coloque o usuário e senha do banco de dados.
 
@@ -56,7 +56,7 @@ Obs: Precisa seguir exatamente essa ordem, o sistema já valída caso tenha algu
 
 4º Há uma pasta chamada doc, nela você terá a documentação de todas as classes.<br>
 
-Documentação
-
- <img src=”EspacoCafeBeans.html”>
+#Documentação
+A documentação esta em um site de hospedagem  ![image](https://user-images.githubusercontent.com/57731043/109433639-2bddcc00-79f0-11eb-9218-39fde02540a1.png)<br>
+Link =”http://documentacaomdinfo.infinityfreeapp.com/?i=1”>
 
