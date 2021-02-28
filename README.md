@@ -1,4 +1,4 @@
-# Desafo-MDInfo
+# Desafio-MDInfo
 Sistema de Gerenciamento
 ![MdInfoTutor](https://user-images.githubusercontent.com/57731043/109428118-57eb5400-79d4-11eb-958b-cc4515d76698.jpg)
 
