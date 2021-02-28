@@ -3,7 +3,10 @@ Sistema de Gerenciamento
 ![MdInfoTutor](https://user-images.githubusercontent.com/57731043/109428118-57eb5400-79d4-11eb-958b-cc4515d76698.jpg)
 
 
-Projeto Desenvolvido em Java SE, utilizando o banco de dados MySQ,
+Projeto Desenvolvido em Java SE com a IDE (Eclipse)![R2fd6611a1467d47c9e73fc9cb4f260a5](https://user-images.githubusercontent.com/57731043/109434453-2c786180-79f4-11eb-9c7d-4a3566224873.png)
+
+ , utilizando o banco de dados (MySQ)![1920px-Logo_MySQL svg](https://user-images.githubusercontent.com/57731043/109434524-7a8d6500-79f4-11eb-80d0-efe2b83628d0.png)
+.
 
 1º Criar uma base de dados chamada projeto no Mysql, Nele você terá a estrutura das três tabelas que compõem o projeto.
 
@@ -60,5 +63,5 @@ Obs: Precisa seguir exatamente essa ordem, o sistema já valída caso tenha algu
 
 
 A documentação esta em um site de hospedagem  ![image](https://user-images.githubusercontent.com/57731043/109433639-2bddcc00-79f0-11eb-9218-39fde02540a1.png)<br>
-Link =”http://documentacaomdinfo.infinityfreeapp.com/?i=1”>
+Link =http://documentacaomdinfo.infinityfreeapp.com/?i=1
 
