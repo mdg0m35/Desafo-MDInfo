@@ -43,7 +43,7 @@ CREATE TABLE `pessoas` (
   PRIMARY KEY (`idPessoa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-COMMIT;
+COMMIT;<br>
 ![gif](https://user-images.githubusercontent.com/57731043/109428982-499f3700-79d8-11eb-9695-5c0951d06c16.gif)
 
 2º Procure a classe de conexão e coloque o usuário e senha do banco de dados.
