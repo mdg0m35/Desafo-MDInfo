@@ -44,6 +44,7 @@ CREATE TABLE `pessoas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 COMMIT;
+https://user-images.githubusercontent.com/57731043/109428772-54a59780-79d7-11eb-8e41-517cf9fa49e8.mp4
 2º Procure a classe de conexão e coloque o usuário e senha do banco de dados.
 
 3º Funcionamento do sistema:
