@@ -15,43 +15,43 @@ use projeto;
 --
 -- Estrutura da tabela `espacocafe`
 --
-CREATE TABLE `espacocafe` (
-  `idEspacoCafe` int(11) NOT NULL AUTO_INCREMENT,
-  `nomeEspacoCafe` varchar(30) NOT NULL,
-  PRIMARY KEY (`idEspacoCafe`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `espacocafe` (<br>
+  `idEspacoCafe` int(11) NOT NULL AUTO_INCREMENT,<br>
+  `nomeEspacoCafe` varchar(30) NOT NULL,<br>
+  PRIMARY KEY (`idEspacoCafe<br>
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;<br>
 -- -------------------------------------------------------
 --
 -- Estrutura da tabela `eventos`
 --
-CREATE TABLE `eventos` (
-  `idEvento` int(11) NOT NULL AUTO_INCREMENT,
-  `nomeEvento` varchar(30) NOT NULL,
-  `lotacaoEvento` int(11) NOT NULL,
-  `espacoCafe` varchar(30) NOT NULL,
-  PRIMARY KEY (`idEvento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `eventos` (<br>
+  `idEvento` int(11) NOT NULL AUTO_INCREMENT,<br>
+  `nomeEvento` varchar(30) NOT NULL,<br>
+  `lotacaoEvento` int(11) NOT NULL,<br>
+  `espacoCafe` varchar(30) NOT NULL,<br>
+  PRIMARY KEY (`idEvento`)<br>
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;<br>
 -- ------------------------------------------------------
 -- Estrutura da tabela `pessoas`
 -
-CREATE TABLE `pessoas` (
-  `idPessoa` int(11) NOT NULL AUTO_INCREMENT,
-  `nomePessoa` varchar(20) NOT NULL,
-  `sobrenomePessoa` varchar(50) NOT NULL,
-  `etapa1` int(11) NOT NULL,
-  `etapa2` int(11) NOT NULL,
-  PRIMARY KEY (`idPessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `pessoas` (<br>
+  `idPessoa` int(11) NOT NULL AUTO_INCREMENT,<br>
+  `nomePessoa` varchar(20) NOT NULL,<br>
+  `sobrenomePessoa` varchar(50) NOT NULL,<br>
+  `etapa1` int(11) NOT NULL,<br>
+  `etapa2` int(11) NOT NULL,<br>
+  PRIMARY KEY (`idPessoa`)<br>
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;<br>
 
 COMMIT;<br>
 ![gif](https://user-images.githubusercontent.com/57731043/109428982-499f3700-79d8-11eb-9695-5c0951d06c16.gif)
 
 2º Procure a classe de conexão e coloque o usuário e senha do banco de dados.
 
-3º Funcionamento do sistema:
-Você precisa cadastrar dois espaços para café.
-Cadastre os dois eventos.
-Cadastre os participantes do evento.
-Obs: Precisa seguir exatamente essa ordem, o sistema já valída caso tenha algum erro.
+3º Funcionamento do sistema:<br>
+Você precisa cadastrar dois espaços para café.<br>
+Cadastre os dois eventos.<br>
+Cadastre os participantes do evento.<br>
+Obs: Precisa seguir exatamente essa ordem, o sistema já valída caso tenha algum erro.<br>
 
-4º Há uma pasta chamada doc, nela você terá a documentação de todas as classes.
+4º Há uma pasta chamada doc, nela você terá a documentação de todas as classes.<br>
