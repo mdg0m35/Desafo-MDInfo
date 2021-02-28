@@ -40,15 +40,15 @@ public class Tutorial extends JFrame {
 	public Tutorial() {
 		u.InserirIcone(this);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 883, 396);
+		setBounds(100, 100, 1085, 514);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel tutorialF = new JLabel("New label");
-		tutorialF.setIcon(new ImageIcon(Tutorial.class.getResource("/Imagens/fundoBV.png")));
-		tutorialF.setBounds(0, 0, 869, 359);
+		tutorialF.setIcon(new ImageIcon(Tutorial.class.getResource("/Imagens/MdInfoTutor.jpg")));
+		tutorialF.setBounds(10, 10, 1058, 449);
 		contentPane.add(tutorialF);
 	}
 

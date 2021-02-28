@@ -106,38 +106,183 @@ public class Principal extends JFrame {
 			comboBox.addItem(nome);
 		}
 
-		JInternalFrame TelaBemVindo = new JInternalFrame("Bem Vindo");
-		TelaBemVindo.setIconifiable(true);
-		TelaBemVindo.setBounds(10, 30, 863, 400);
-		contentPane.add(TelaBemVindo);
-		TelaBemVindo.getContentPane().setLayout(null);
-
-		JButton btFechar = new JButton("Fechar");
-		btFechar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaBemVindo.dispose();
-			}
-		});
-		btFechar.setBounds(768, 0, 73, 16);
-		TelaBemVindo.getContentPane().add(btFechar);
-		btFechar.setToolTipText("Fechar Bem Vindo");
-		btFechar.setForeground(Color.WHITE);
-		btFechar.setBackground(Color.RED);
-
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundoBV.png")));
-		lblNewLabel.setBounds(0, 10, 851, 361);
-		TelaBemVindo.getContentPane().add(lblNewLabel);
-		TelaBemVindo.setVisible(true);
-
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 11, 864, 419);
 		contentPane.add(tabbedPane);
+		
+				JPanel panel3 = new JPanel();
+				tabbedPane.addTab("Cadastrar espa\u00E7o de caf\u00E9", null, panel3, null);
+				panel3.setLayout(null);
+				
+						JLabel lblCadastrarEspacoCafe = new JLabel("Cadastrar Espa\u00E7o do Caf\u00E9");
+						lblCadastrarEspacoCafe.setForeground(Color.BLACK);
+						lblCadastrarEspacoCafe.setHorizontalAlignment(SwingConstants.CENTER);
+						lblCadastrarEspacoCafe.setFont(new Font("Arial Black", Font.PLAIN, 24));
+						lblCadastrarEspacoCafe.setBounds(413, 70, 365, 48);
+						panel3.add(lblCadastrarEspacoCafe);
+						
+								JLabel fundo3logo3 = new JLabel("New label");
+								fundo3logo3.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/text (2).png")));
+								fundo3logo3.setBounds(10, 43, 471, 75);
+								panel3.add(fundo3logo3);
+								
+										JLabel fundo3logo2 = new JLabel("");
+										fundo3logo2.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundo2.png")));
+										fundo3logo2.setBounds(76, 28, 700, 323);
+										panel3.add(fundo3logo2);
+										
+												JLabel lblNomeCafe = new JLabel("Nome:");
+												lblNomeCafe.setForeground(Color.BLACK);
+												lblNomeCafe.setFont(new Font("Arial Black", Font.PLAIN, 16));
+												lblNomeCafe.setBounds(135, 134, 73, 14);
+												panel3.add(lblNomeCafe);
+												
+														txtNomeEspacoCafe = new JTextField();
+														txtNomeEspacoCafe.setFont(new Font("Tahoma", Font.PLAIN, 14));
+														txtNomeEspacoCafe.setColumns(10);
+														txtNomeEspacoCafe.setBounds(218, 128, 539, 28);
+														panel3.add(txtNomeEspacoCafe);
+														
+																JButton btnCadastrarPessoa_1_1 = new JButton("Cadastrar");
+																btnCadastrarPessoa_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+																btnCadastrarPessoa_1_1.setBounds(377, 177, 121, 28);
+																panel3.add(btnCadastrarPessoa_1_1);
+																
+																		JLabel fundo2logo1 = new JLabel("New label");
+																		fundo2logo1.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundoCadastro (1).jpg")));
+																		fundo2logo1.setBounds(0, -18, 859, 420);
+																		panel3.add(fundo2logo1);
+																		btnCadastrarPessoa_1_1.addActionListener(new ActionListener() {
+																			public void actionPerformed(ActionEvent e) {
+
+																				// Validar se há dois espaços para café
+																				EspacoCafeDao ed = new EspacoCafeDao();
+																				if (ed.qtdEspacoCafe() < 2) {
+
+																					// Obter dados
+																					String nomeEspacoCafe = txtNomeEspacoCafe.getText();
+																					EspacoCafeBeans eb = new EspacoCafeBeans();
+																					eb.setNomeEspacoCafe(nomeEspacoCafe);
+
+																					// Efetuar cadastro
+																					EspacoCafeController ec = new EspacoCafeController();
+																					ec.cadastrar(eb);
+
+																					// Limpar campos
+																					txtNomeEspacoCafe.setText("");
+
+																				} else {
+																					JOptionPane.showMessageDialog(null, "Os dois espaços para cafés foram cadastrados.");
+																				}
+
+																			}
+																		});
+		
+				JPanel panel2 = new JPanel();
+				tabbedPane.addTab("Cadastrar evento", null, panel2, null);
+				panel2.setLayout(null);
+				
+						JButton btnCadastrarPessoa_1 = new JButton("Cadastrar");
+						btnCadastrarPessoa_1.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+
+								// Validar se há dois espaços para café
+								EspacoCafeDao ed = new EspacoCafeDao();
+								EventoDao evd = new EventoDao();
+								if (txtNomeEvento.getText().equals("") || txtLotacao.getText().equals("")) {
+									JOptionPane.showMessageDialog(null, "Cadastre os dois espaços para café obrigatórios");
+								} else if (evd.qtdEventos() >= 2) {
+									JOptionPane.showMessageDialog(null, "Os dois eventos já foram cadastrados");
+								} else {
+
+									// Obter dados
+									String nomeEvento = txtNomeEvento.getText();
+									int lotacaoEvento = Integer.parseInt(txtLotacao.getText());
+
+									// Criar objeto do tipo Evento
+									EventoBeans eb = new EventoBeans();
+									eb.setNomeEvento(nomeEvento);
+									eb.setLotacaoEvento(lotacaoEvento);
+
+									// Efetuar cadastro
+									EventoController ec = new EventoController();
+									ec.cadastrar(eb);
+
+									// ComboBox - Consulta
+									nomesEventos.add(nomeEvento);
+									cbxEvento.removeAllItems();
+									cbxEvento.addItem("Selecione o evento");
+									for (String nome : nomesEventos) {
+										cbxEvento.addItem(nome);
+									}
+
+									// Limpar campos
+									txtNomeEvento.setText("");
+									txtLotacao.setText("");
+
+								}
+
+							}
+						});
+						btnCadastrarPessoa_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+						btnCadastrarPessoa_1.setBounds(366, 190, 121, 28);
+						panel2.add(btnCadastrarPessoa_1);
+						
+								JLabel lblCadastrarEvento = new JLabel("Cadastrar Evento");
+								lblCadastrarEvento.setHorizontalAlignment(SwingConstants.CENTER);
+								lblCadastrarEvento.setFont(new Font("Arial Black", Font.PLAIN, 24));
+								lblCadastrarEvento.setBounds(397, 54, 365, 48);
+								panel2.add(lblCadastrarEvento);
+								
+										txtLotacao = new JTextField();
+										txtLotacao.setFont(new Font("Tahoma", Font.PLAIN, 14));
+										txtLotacao.setColumns(10);
+										txtLotacao.setBounds(216, 151, 407, 28);
+										panel2.add(txtLotacao);
+										
+												txtNomeEvento = new JTextField();
+												txtNomeEvento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+												txtNomeEvento.setColumns(10);
+												txtNomeEvento.setBounds(216, 112, 407, 28);
+												panel2.add(txtNomeEvento);
+												
+														JLabel fundoLogo3_2 = new JLabel("");
+														fundoLogo3_2.setForeground(Color.BLACK);
+														fundoLogo3_2.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundo2.png")));
+														fundoLogo3_2.setBounds(-34, 32, 746, 324);
+														panel2.add(fundoLogo3_2);
+														
+																JLabel fundoLogo3_1 = new JLabel("");
+																fundoLogo3_1.setBounds(0, 0, 820, 356);
+																panel2.add(fundoLogo3_1);
+																
+																		JLabel Logo2 = new JLabel("");
+																		Logo2.setIcon(new ImageIcon(
+																				"C:\\Users\\Marcos David\\Documents\\NetBeansProjects\\MdInfo\\src\\imagens\\text (2).png"));
+																		Logo2.setBounds(0, 10, 521, 86);
+																		panel2.add(Logo2);
+																		
+																				JLabel lblNomeEvento = new JLabel("Nome:");
+																				lblNomeEvento.setForeground(Color.BLACK);
+																				lblNomeEvento.setFont(new Font("Arial Black", Font.PLAIN, 16));
+																				lblNomeEvento.setBounds(102, 118, 104, 14);
+																				panel2.add(lblNomeEvento);
+																				
+																						JLabel lblLotao = new JLabel("Lota\u00E7\u00E3o:");
+																						lblLotao.setForeground(Color.BLACK);
+																						lblLotao.setFont(new Font("Arial Black", Font.PLAIN, 16));
+																						lblLotao.setBounds(102, 157, 104, 22);
+																						panel2.add(lblLotao);
+																						
+																								JLabel fundoLogo = new JLabel("");
+																								fundoLogo.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundoCadastro (1).jpg")));
+																								fundoLogo.setBounds(0, -14, 859, 406);
+																								panel2.add(fundoLogo);
 
 		JPanel panel1 = new JPanel();
 		panel1.setBackground(Color.LIGHT_GRAY);
 		tabbedPane.addTab("Cadastrar pessoas", null, panel1, null);
-		tabbedPane.setBackgroundAt(0, Color.LIGHT_GRAY);
+		tabbedPane.setBackgroundAt(2, Color.LIGHT_GRAY);
 		panel1.setLayout(null);
 
 		txtSobrenomePessoa = new JTextField();
@@ -225,175 +370,6 @@ public class Principal extends JFrame {
 		fundoLogo2.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundoCadastro (1).jpg")));
 		fundoLogo2.setBounds(0, 0, 859, 392);
 		panel1.add(fundoLogo2);
-
-		JPanel panel3 = new JPanel();
-		tabbedPane.addTab("Cadastrar espa\u00E7o de caf\u00E9", null, panel3, null);
-		panel3.setLayout(null);
-
-		JLabel lblCadastrarEspacoCafe = new JLabel("Cadastrar Espa\u00E7o do Caf\u00E9");
-		lblCadastrarEspacoCafe.setForeground(Color.BLACK);
-		lblCadastrarEspacoCafe.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCadastrarEspacoCafe.setFont(new Font("Arial Black", Font.PLAIN, 24));
-		lblCadastrarEspacoCafe.setBounds(413, 70, 365, 48);
-		panel3.add(lblCadastrarEspacoCafe);
-
-		JLabel fundo3logo3 = new JLabel("New label");
-		fundo3logo3.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/text (2).png")));
-		fundo3logo3.setBounds(10, 43, 471, 75);
-		panel3.add(fundo3logo3);
-
-		JLabel fundo3logo2 = new JLabel("");
-		fundo3logo2.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundo2.png")));
-		fundo3logo2.setBounds(76, 28, 700, 323);
-		panel3.add(fundo3logo2);
-
-		JLabel lblNomeCafe = new JLabel("Nome:");
-		lblNomeCafe.setForeground(Color.BLACK);
-		lblNomeCafe.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		lblNomeCafe.setBounds(135, 134, 73, 14);
-		panel3.add(lblNomeCafe);
-
-		txtNomeEspacoCafe = new JTextField();
-		txtNomeEspacoCafe.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtNomeEspacoCafe.setColumns(10);
-		txtNomeEspacoCafe.setBounds(218, 128, 539, 28);
-		panel3.add(txtNomeEspacoCafe);
-
-		JButton btnCadastrarPessoa_1_1 = new JButton("Cadastrar");
-		btnCadastrarPessoa_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnCadastrarPessoa_1_1.setBounds(377, 177, 121, 28);
-		panel3.add(btnCadastrarPessoa_1_1);
-
-		JLabel fundo2logo1 = new JLabel("New label");
-		fundo2logo1.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundoCadastro (1).jpg")));
-		fundo2logo1.setBounds(0, -18, 859, 420);
-		panel3.add(fundo2logo1);
-		btnCadastrarPessoa_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				// Validar se há dois espaços para café
-				EspacoCafeDao ed = new EspacoCafeDao();
-				if (ed.qtdEspacoCafe() < 2) {
-
-					// Obter dados
-					String nomeEspacoCafe = txtNomeEspacoCafe.getText();
-					EspacoCafeBeans eb = new EspacoCafeBeans();
-					eb.setNomeEspacoCafe(nomeEspacoCafe);
-
-					// Efetuar cadastro
-					EspacoCafeController ec = new EspacoCafeController();
-					ec.cadastrar(eb);
-
-					// Limpar campos
-					txtNomeEspacoCafe.setText("");
-
-				} else {
-					JOptionPane.showMessageDialog(null, "Os dois espaços para cafés foram cadastrados.");
-				}
-
-			}
-		});
-
-		JPanel panel2 = new JPanel();
-		tabbedPane.addTab("Cadastrar evento", null, panel2, null);
-		panel2.setLayout(null);
-
-		JButton btnCadastrarPessoa_1 = new JButton("Cadastrar");
-		btnCadastrarPessoa_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				// Validar se há dois espaços para café
-				EspacoCafeDao ed = new EspacoCafeDao();
-				EventoDao evd = new EventoDao();
-				if (txtNomeEvento.getText().equals("") || txtLotacao.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Cadastre os dois espaços para café obrigatórios");
-				} else if (evd.qtdEventos() >= 2) {
-					JOptionPane.showMessageDialog(null, "Os dois eventos já foram cadastrados");
-				} else {
-
-					// Obter dados
-					String nomeEvento = txtNomeEvento.getText();
-					int lotacaoEvento = Integer.parseInt(txtLotacao.getText());
-
-					// Criar objeto do tipo Evento
-					EventoBeans eb = new EventoBeans();
-					eb.setNomeEvento(nomeEvento);
-					eb.setLotacaoEvento(lotacaoEvento);
-
-					// Efetuar cadastro
-					EventoController ec = new EventoController();
-					ec.cadastrar(eb);
-
-					// ComboBox - Consulta
-					nomesEventos.add(nomeEvento);
-					cbxEvento.removeAllItems();
-					cbxEvento.addItem("Selecione o evento");
-					for (String nome : nomesEventos) {
-						cbxEvento.addItem(nome);
-					}
-
-					// Limpar campos
-					txtNomeEvento.setText("");
-					txtLotacao.setText("");
-
-				}
-
-			}
-		});
-		btnCadastrarPessoa_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnCadastrarPessoa_1.setBounds(366, 190, 121, 28);
-		panel2.add(btnCadastrarPessoa_1);
-
-		JLabel lblCadastrarEvento = new JLabel("Cadastrar Evento");
-		lblCadastrarEvento.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCadastrarEvento.setFont(new Font("Arial Black", Font.PLAIN, 24));
-		lblCadastrarEvento.setBounds(397, 54, 365, 48);
-		panel2.add(lblCadastrarEvento);
-
-		txtLotacao = new JTextField();
-		txtLotacao.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtLotacao.setColumns(10);
-		txtLotacao.setBounds(216, 151, 407, 28);
-		panel2.add(txtLotacao);
-
-		txtNomeEvento = new JTextField();
-		txtNomeEvento.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtNomeEvento.setColumns(10);
-		txtNomeEvento.setBounds(216, 112, 407, 28);
-		panel2.add(txtNomeEvento);
-
-		JLabel fundoLogo3_2 = new JLabel("");
-		fundoLogo3_2.setForeground(Color.BLACK);
-		fundoLogo3_2.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundo2.png")));
-		fundoLogo3_2.setBounds(-34, 32, 746, 324);
-		panel2.add(fundoLogo3_2);
-
-		JLabel fundoLogo3_1 = new JLabel("");
-		fundoLogo3_1.setBounds(0, 0, 820, 356);
-		panel2.add(fundoLogo3_1);
-
-		JLabel Logo2 = new JLabel("");
-		Logo2.setIcon(new ImageIcon(
-				"C:\\Users\\Marcos David\\Documents\\NetBeansProjects\\MdInfo\\src\\imagens\\text (2).png"));
-		Logo2.setBounds(0, 10, 521, 86);
-		panel2.add(Logo2);
-
-		JLabel lblNomeEvento = new JLabel("Nome:");
-		lblNomeEvento.setForeground(Color.BLACK);
-		lblNomeEvento.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		lblNomeEvento.setBounds(102, 118, 104, 14);
-		panel2.add(lblNomeEvento);
-
-		JLabel lblLotao = new JLabel("Lota\u00E7\u00E3o:");
-		lblLotao.setForeground(Color.BLACK);
-		lblLotao.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		lblLotao.setBounds(102, 157, 104, 22);
-		panel2.add(lblLotao);
-
-		JLabel fundoLogo = new JLabel("");
-		fundoLogo.setIcon(new ImageIcon(Principal.class.getResource("/Imagens/fundoCadastro (1).jpg")));
-		fundoLogo.setBounds(0, -14, 859, 406);
-		panel2.add(fundoLogo);
 
 		JPanel panel4 = new JPanel();
 		tabbedPane.addTab("Consultar pessoa", null, panel4, null);
