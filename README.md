@@ -55,3 +55,6 @@ Cadastre os participantes do evento.<br>
 Obs: Precisa seguir exatamente essa ordem, o sistema já valída caso tenha algum erro.<br>
 
 4º Há uma pasta chamada doc, nela você terá a documentação de todas as classes.<br>
+
+allclasses-index.html
+
