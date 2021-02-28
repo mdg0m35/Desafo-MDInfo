@@ -9,8 +9,8 @@ Projeto Desenvolvido em Java SE, utilizando o banco de dados MySQ,
 
 -- Banco de dados: `projeto`
 --
-create database projeto;,<br>
-use projeto;,<br>
+create database projeto;<br>
+use projeto;<br>
 -- --------------------------------------------------------
 --
 -- Estrutura da tabela `espacocafe`
