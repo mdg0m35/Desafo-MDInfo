@@ -58,5 +58,5 @@ Obs: Precisa seguir exatamente essa ordem, o sistema já valída caso tenha algu
 
 Documentação
 
- <img src=”https://github.com/mdg0m35/Desafo-MDInfo/tree/main/doc”>
+ <img src=”https://github.com/mdg0m35/Desafo-MDInfo/blob/main/doc/beans/EspacoCafeBeans.html”>
 
